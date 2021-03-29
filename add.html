@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaFOM</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <h3><b>Ma<span>FOM</span></b></h3>
+            </a>
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                  <a class="nav-link active mx-2 btn btn-primary" href="login.html">Log in</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link btn btn-outline-primary" href="register.html">Sign up</a>
+                </li>
+                
+              </ul>
+        </div>
+    </nav>
+    
+    <section class="add-evn">
+        <div class="container ct-add">
+            <form class="evn-add-form" >
+                <h3>Event Basic info</h3>
+                <p>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</p>
+                <div class="form-group">
+                    <label for="pname">Event name</label>
+                    <input type="text" class="form-control" name="ename">
+                </div>
+                <div class="form-group">
+                    <label for="p-age">Event description</label>
+                    <textarea name="edesc" class="form-control" rows="2"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="exampleFormControlSelect1">Type</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleFormControlSelect1">Category</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="ill">Add event poster</label>
+                    <input type="file" name="ill" id="">
+                </div>
+
+                <hr>
+
+                <h3>Location</h3>    
+                <p>Help people in the area discover your event and let attendees know where to show up.</p>
+                <div class="form-group">
+                    <label for="pname">Event location</label>
+                    <input type="text" class="form-control" name="elocat">
+                </div>
+
+                <hr>
+
+                <h3>Date and Time</h3>
+                <p>Tell event-goers when your event starts and ends so they can make plans to attend.</p>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="pname">Event starts</label>
+                        <input type="date" class="form-control" name="estartd">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="pname">Start time</label>
+                        <input type="time" class="form-control" name="estartt">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="pname">Event ends</label>
+                        <input type="date" class="form-control" name="estartd">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="pname">End time</label>
+                        <input type="time" class="form-control" name="estartt">
+                    </div>
+                </div>
+                    
+                <hr>
+
+                <h3>Pricing</h3>
+                <p>Tell event-goers the cost of the event and the number of people to attend</p>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="pname">Event Capacity</label>
+                        <input type="number" class="form-control" name="elocat">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="pname">Event Price</label>
+                        <input type="number" class="form-control" name="elocat">
+                    </div>
+                </div>
+                <hr>
+                <br>
+                <button type="submit" class="btn btn-primary btn-block">Create Event</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
