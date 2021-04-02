@@ -200,7 +200,7 @@ table{
 .sm-form{
     width: 568px;
     background: var(--lightcolor);
-    padding: 10px;
+    padding: 20px;
     border-radius: var(--br-primary);
     box-shadow: var(--shadow);
 }
