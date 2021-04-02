@@ -22,6 +22,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     Event::changeTicketStatus($eid, $capacity, $price);
     header('Location: index.php');
+    
 }
 
 ?>
