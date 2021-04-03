@@ -19,7 +19,7 @@ if(session_status() === PHP_SESSION_NONE) {
 <body>
     <nav class="navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.php">
                 <h3><b>Ma<span>FOM</span></b></h3>
             </a>
             <ul class="nav justify-content-end">

@@ -97,10 +97,10 @@ class Event{
         $pdo = establishCONN();
 
         $stmt = $pdo->prepare("UPDATE events SET capacity = :cpcity, price = :price, hasTickets = :hsPster WHERE event_id = :eid");
-        $stmt->bindValue(':eid', $id);
-        $stmt->bindValue(':cpicity', $capacity);
-        $stmt->bindValue(':price', $price);
-        $stmt->bindValue(':hsPster', true);
+        $stmt->bindValue(':eid', $id, PDO::PARAM_INT);
+        $stmt->bindValue(':cpcity', $capacity, PDO::PARAM_INT);
+        $stmt->bindValue(':price', $price, PDO::PARAM_INT);
+        $stmt->bindValue(':hsPster', true, PDO::PARAM_BOOL);
 
         $stmt->execute();
     }

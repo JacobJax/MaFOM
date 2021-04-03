@@ -21,7 +21,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     Event::changeTicketStatus($eid, $capacity, $price);
-    header('Location: index.php');
+    session_start();
+    header('Location: events.php?uid=' . $_SESSION['uid']);
     
 }
 

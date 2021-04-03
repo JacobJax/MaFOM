@@ -41,11 +41,12 @@ class Ticket{
     }
 
     public function addTicket() {
+        $rnum = $this->convertNum(rand(10000, 900000));
 
         $pdo = establishCONN();
 
         $stmt = $pdo->prepare("INSERT INTO tickets (serial_number, event_id, user_id) VALUES (:snum, :eid, :uid)");
-        $stmt->bindValue(':snum', $this->serialNum);
+        $stmt->bindValue(':snum', $this->serialNum . $rnum);
         $stmt->bindValue(':eid', $this->event_id);
         $stmt->bindValue(':uid', $this->user_id);
 

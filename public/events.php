@@ -15,33 +15,7 @@ $events = Event::getUserEvents($uid);
 
     <section class="main-cont">
         <div class="container-fluid d-flex contents">
-            <aside class="left-nav">
-                <div class="letf-nav-items">
-                    <ul class="nav flex-column my-5">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="index.html">
-                                <img src="https://img.icons8.com/emoji/30/000000/house-emoji.png" class="mx-2">Home
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <img src="https://img.icons8.com/emoji/30/000000/calendar-emoji.png" class="mx-2">Events
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <img src="https://img.icons8.com/emoji/30/000000/-emoji-admission.png"/ class="mx-2">Tickets
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <img src="https://img.icons8.com/emoji/30/000000/bookmark-emoji.png" class="mx-2">Saved
-                            </a>
-                        </li>
-                    </ul>
-                    <a href="add.html" class="btn btn-event">Create event</a>
-                </div>
-            </aside>
+        <?php include_once 'includes/sidenav.php' ?>
 
             <main class="mx-5">
                 <div class="events my-2">
@@ -66,9 +40,13 @@ $events = Event::getUserEvents($uid);
                                             <td><?php echo $event["name"] ?></td>
                                             <td><?php echo $event["location"] ?></td>
                                             <td><?php echo $event["start_date"] ?></td>
-                                            <td><?php $event["price"] ?></td>
+                                            <td><?php echo $event["price"] ?></td>
                                             <td>
-                                                <a href="addTickets.php?uid=<?php echo $uid ?>&eid=<?php echo $event["event_id"] ?>" class="btn btn-primary btn-sm">Create tickets</a>
+                                                <?php if($event["hasTickets"]) {?>
+                                                    <a href="moreTickets.php?uid=<?php echo $uid ?>&eid=<?php echo $event["event_id"] ?>" class="btn btn-primary btn-sm">Add more tickets</a>
+                                                <?php } else {?>
+                                                    <a href="addTickets.php?uid=<?php echo $uid ?>&eid=<?php echo $event["event_id"] ?>" class="btn btn-primary btn-sm">Create tickets</a>
+                                                <?php }?>
                                                 <a href="#" class="btn btn-secondary btn-sm">Edit</a>
                                                 <a href="#" class="btn btn-danger btn-sm">Delete</a>
                                             </td>
