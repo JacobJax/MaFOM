@@ -35,7 +35,7 @@ class Event{
 
         $pdo = establishCONN();
 
-        $stmt = $pdo->prepare("INSERT INTO events (name, location, description, type_id, category_id, start_date, start_time, end_date, end_time, user_id, event_poster)  VALUES (:name, :lcation, :desc, :t_id, :c_id, :s_date, :s_time, :e_date, :e_time, :u_id, :pster)" );
+        $stmt = $pdo->prepare("INSERT INTO events (name, evn_location, description, type_id, category_id, start_date, start_time, end_date, end_time, user_id, event_poster)  VALUES (:name, :lcation, :desc, :t_id, :c_id, :s_date, :s_time, :e_date, :e_time, :u_id, :pster)" );
 
         $stmt->bindValue(':name', $this->name);
         $stmt->bindValue(':lcation', $this->location);
@@ -64,7 +64,7 @@ class Event{
     public static function getEventsWithTickets() {
 
         $pdo = establishCONN();
-        $stmt = $pdo->prepare("SELECT * FROM events WHERE hasTickets = true");
+        $stmt = $pdo->prepare("SELECT * FROM events, users WHERE hasTickets = true AND  events.user_id = users.user_id");
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

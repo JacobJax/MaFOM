@@ -36,6 +36,16 @@
     --br-primary: 5px;
     --br-secondary: 3px;
 }
+/* link evn */
+.link-evn{
+    text-decoration: none;
+    color: var(--dark);
+}
+.link-evn:hover{
+    text-decoration: none;
+    color: var(--dark);
+}
+/*  */
 
 body{
     font-family: var(--ff); 
@@ -98,6 +108,7 @@ aside a{
     height: 90vh;
     overflow-y: scroll;
     padding: 5px;
+    max-width: 978px;
 }
 /* Hide scrollbar for Chrome, Safari and Opera */
 .events::-webkit-scrollbar {
@@ -117,7 +128,7 @@ aside a{
     background: var(--lightcolor);
 }
 .evn-img{
-    width: 600px;
+    width: 630px;
     /* height: 150px; */
 }
 .evn-img img{
@@ -127,6 +138,9 @@ aside a{
     object-position: center;
     border-radius: var(--br-secondary);
 
+}
+.evn-text{
+    max-width: 668px;
 }
 .pill{
     font-size: var(--sm-font);

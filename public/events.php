@@ -38,7 +38,7 @@ $events = Event::getUserEvents($uid);
                                         <tr>
                                             <th scope="row"><?php echo $i + 1 ?></th>
                                             <td><?php echo $event["name"] ?></td>
-                                            <td><?php echo $event["location"] ?></td>
+                                            <td><?php echo $event["evn_location"] ?></td>
                                             <td><?php echo $event["start_date"] ?></td>
                                             <td><?php echo $event["price"] ?></td>
                                             <td>

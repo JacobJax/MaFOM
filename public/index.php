@@ -14,216 +14,39 @@ $events = Event::getEventsWithTickets();
                 <div class="events my-2">
                     <div class="evn-container">
                         <div class="events">
-                            <div class="event my-2">
-                                <div class="event-container d-flex">
-                                    <div class="evn-img">
-                                        <img src="./img/prty-1.jpg" alt="">
-                                    </div>
-                                    <div class="evn-text d-flex">
-                                        <div class="evn-text-left">
-                                            <div class="evn-text-header d-flex">
-                                                <p class="pill evn-location">Mombasa</p>
-                                                <small><p class="mx-2 evn-date">March 21 1/1/2021 from 6pm</p></small>
+                            <?php foreach($events as $event) {?>
+                                <div class="event my-3">
+                                    <a href="event.php?eid=<?php echo $event["event_id"] ?>" class="link-evn">
+                                        <div class="event-container d-flex">
+                                            <div class="evn-img">
+                                                <img src="<?php echo $event["event_poster"] ?>" alt="">
                                             </div>
-                                            <div class="evn-description">
-                                                <h3 class="evn-title title">NRG COMMING MSA</h3>
-                                                <p class="evn-description-text">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus necessitatibus, porro odit nihil aliquam fugiat illum soluta deleniti optio. Doloribus fugiat libero corrupti laborum eaque, aperiam ipsam mollitia explicabo necessitatibus.
-                                                </p>
+                                            <div class="evn-text d-flex">
+                                                <div class="evn-text-left">
+                                                    <div class="evn-text-header d-flex">
+                                                        <p class="pill evn-location"><?php echo $event["evn_location"] ?></p>
+                                                        <small><p class="mx-2 evn-date"><?php echo $event["start_date"] . " from " . $event["start_time"] ?></p></small>
+                                                    </div>
+                                                    <div class="evn-description">
+                                                        <h3 class="evn-title title"><?php echo $event["name"] ?></h3>
+                                                        <p class="evn-description-text">
+                                                            <?php echo $event["description"] ?>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="evn-text-right d-flex flex-column" style="gap: 120px;">
+                                                    <div class="evn-links d-flex justify-content-around">
+                                                        <div class="evn-price">
+                                                            <p><b>Kshs <?php echo $event["price"] ?></b></p>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="evn-text-right d-flex flex-column" style="gap: 120px;">
-                                            <div class="evn-links d-flex justify-content-around">
-                                                <img src="https://img.icons8.com/ios/28/000000/external-link.png"/>
-                                                <img src="https://img.icons8.com/ios/28/000000/bookmark-ribbon--v1.png"/>
-                                            </div>
-                                            <div class="evn-price">
-                                                <p><b>Kshs 1500</b></p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </a>    
                                 </div>
-                            </div>
-                            <div class="event my-2">
-                                <div class="event-container d-flex">
-                                    <div class="evn-img">
-                                        <img src="./img/prty-1.jpg" alt="">
-                                    </div>
-                                    <div class="evn-text d-flex">
-                                        <div class="evn-text-left">
-                                            <div class="evn-text-header d-flex">
-                                                <p class="pill evn-location">Mombasa</p>
-                                                <small><p class="mx-2 evn-date">March 21 1/1/2021 from 6pm</p></small>
-                                            </div>
-                                            <div class="evn-description">
-                                                <h3 class="evn-title title">NRG COMMING MSA</h3>
-                                                <p class="evn-description-text">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus necessitatibus, porro odit nihil aliquam fugiat illum soluta deleniti optio. Doloribus fugiat libero corrupti laborum eaque, aperiam ipsam mollitia explicabo necessitatibus.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="evn-text-right d-flex flex-column" style="gap: 120px;">
-                                            <div class="evn-links d-flex justify-content-around">
-                                                <img src="https://img.icons8.com/ios/28/000000/external-link.png"/>
-                                                <img src="https://img.icons8.com/ios/28/000000/bookmark-ribbon--v1.png"/>
-                                            </div>
-                                            <div class="evn-price">
-                                                <p><b>Kshs 1500</b></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="event my-2">
-                                <div class="event-container d-flex">
-                                    <div class="evn-img">
-                                        <img src="./img/prty-1.jpg" alt="">
-                                    </div>
-                                    <div class="evn-text d-flex">
-                                        <div class="evn-text-left">
-                                            <div class="evn-text-header d-flex">
-                                                <p class="pill evn-location">Mombasa</p>
-                                                <small><p class="mx-2 evn-date">March 21 1/1/2021 from 6pm</p></small>
-                                            </div>
-                                            <div class="evn-description">
-                                                <h3 class="evn-title title">NRG COMMING MSA</h3>
-                                                <p class="evn-description-text">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus necessitatibus, porro odit nihil aliquam fugiat illum soluta deleniti optio. Doloribus fugiat libero corrupti laborum eaque, aperiam ipsam mollitia explicabo necessitatibus.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="evn-text-right d-flex flex-column" style="gap: 120px;">
-                                            <div class="evn-links d-flex justify-content-around">
-                                                <img src="https://img.icons8.com/ios/28/000000/external-link.png"/>
-                                                <img src="https://img.icons8.com/ios/28/000000/bookmark-ribbon--v1.png"/>
-                                            </div>
-                                            <div class="evn-price">
-                                                <p><b>Kshs 1500</b></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="event my-2">
-                                <div class="event-container d-flex">
-                                    <div class="evn-img">
-                                        <img src="./img/prty-1.jpg" alt="">
-                                    </div>
-                                    <div class="evn-text d-flex">
-                                        <div class="evn-text-left">
-                                            <div class="evn-text-header d-flex">
-                                                <p class="pill evn-location">Mombasa</p>
-                                                <small><p class="mx-2 evn-date">March 21 1/1/2021 from 6pm</p></small>
-                                            </div>
-                                            <div class="evn-description">
-                                                <h3 class="evn-title title">NRG COMMING MSA</h3>
-                                                <p class="evn-description-text">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus necessitatibus, porro odit nihil aliquam fugiat illum soluta deleniti optio. Doloribus fugiat libero corrupti laborum eaque, aperiam ipsam mollitia explicabo necessitatibus.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="evn-text-right d-flex flex-column" style="gap: 120px;">
-                                            <div class="evn-links d-flex justify-content-around">
-                                                <img src="https://img.icons8.com/ios/28/000000/external-link.png"/>
-                                                <img src="https://img.icons8.com/ios/28/000000/bookmark-ribbon--v1.png"/>
-                                            </div>
-                                            <div class="evn-price">
-                                                <p><b>Kshs 1500</b></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="event my-2">
-                                <div class="event-container d-flex">
-                                    <div class="evn-img">
-                                        <img src="./img/prty-1.jpg" alt="">
-                                    </div>
-                                    <div class="evn-text d-flex">
-                                        <div class="evn-text-left">
-                                            <div class="evn-text-header d-flex">
-                                                <p class="pill evn-location">Mombasa</p>
-                                                <small><p class="mx-2 evn-date">March 21 1/1/2021 from 6pm</p></small>
-                                            </div>
-                                            <div class="evn-description">
-                                                <h3 class="evn-title title">NRG COMMING MSA</h3>
-                                                <p class="evn-description-text">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus necessitatibus, porro odit nihil aliquam fugiat illum soluta deleniti optio. Doloribus fugiat libero corrupti laborum eaque, aperiam ipsam mollitia explicabo necessitatibus.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="evn-text-right d-flex flex-column" style="gap: 120px;">
-                                            <div class="evn-links d-flex justify-content-around">
-                                                <img src="https://img.icons8.com/ios/28/000000/external-link.png"/>
-                                                <img src="https://img.icons8.com/ios/28/000000/bookmark-ribbon--v1.png"/>
-                                            </div>
-                                            <div class="evn-price">
-                                                <p><b>Kshs 1500</b></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="event my-2">
-                                <div class="event-container d-flex">
-                                    <div class="evn-img">
-                                        <img src="./img/prty-1.jpg" alt="">
-                                    </div>
-                                    <div class="evn-text d-flex">
-                                        <div class="evn-text-left">
-                                            <div class="evn-text-header d-flex">
-                                                <p class="pill evn-location">Mombasa</p>
-                                                <small><p class="mx-2 evn-date">March 21 1/1/2021 from 6pm</p></small>
-                                            </div>
-                                            <div class="evn-description">
-                                                <h3 class="evn-title title">NRG COMMING MSA</h3>
-                                                <p class="evn-description-text">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus necessitatibus, porro odit nihil aliquam fugiat illum soluta deleniti optio. Doloribus fugiat libero corrupti laborum eaque, aperiam ipsam mollitia explicabo necessitatibus.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="evn-text-right d-flex flex-column" style="gap: 120px;">
-                                            <div class="evn-links d-flex justify-content-around">
-                                                <img src="https://img.icons8.com/ios/28/000000/external-link.png"/>
-                                                <img src="https://img.icons8.com/ios/28/000000/bookmark-ribbon--v1.png"/>
-                                            </div>
-                                            <div class="evn-price">
-                                                <p><b>Kshs 1500</b></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="event my-2">
-                                <div class="event-container d-flex">
-                                    <div class="evn-img">
-                                        <img src="./img/prty-1.jpg" alt="">
-                                    </div>
-                                    <div class="evn-text d-flex">
-                                        <div class="evn-text-left">
-                                            <div class="evn-text-header d-flex">
-                                                <p class="pill evn-location">Mombasa</p>
-                                                <small><p class="mx-2 evn-date">March 21 1/1/2021 from 6pm</p></small>
-                                            </div>
-                                            <div class="evn-description">
-                                                <h3 class="evn-title title">NRG COMMING MSA</h3>
-                                                <p class="evn-description-text">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus necessitatibus, porro odit nihil aliquam fugiat illum soluta deleniti optio. Doloribus fugiat libero corrupti laborum eaque, aperiam ipsam mollitia explicabo necessitatibus.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="evn-text-right d-flex flex-column" style="gap: 120px;">
-                                            <div class="evn-links d-flex justify-content-around">
-                                                <img src="https://img.icons8.com/ios/28/000000/external-link.png"/>
-                                                <img src="https://img.icons8.com/ios/28/000000/bookmark-ribbon--v1.png"/>
-                                            </div>
-                                            <div class="evn-price">
-                                                <p><b>Kshs 1500</b></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
