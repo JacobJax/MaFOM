@@ -50,7 +50,7 @@ class User{
     public static function getSingleUser($id) {
         $pdo = establishCONN();
 
-        $stmt = $pdo->prepare("SELECT * FROM users  WHERE id = :id");
+        $stmt = $pdo->prepare("SELECT * FROM users  WHERE user_id = :id");
         $stmt->bindValue(':id', $id);
         $stmt->execute();
 
@@ -75,6 +75,27 @@ class User{
             'isLogged' => password_verify($password, $h_pwd),
             'userObject' => $user
         ];
+    }
+
+    public static function follow($uid, $fid) {
+        $pdo = establishCONN();
+
+        $stmt = $pdo->prepare("INSERT INTO folowers (user_id, folower_id) VALUES (:uid, :fid)");
+        $stmt->bindValue(':uid', $uid);
+        $stmt->bindValue(':fid', $fid);
+
+        $stmt->execute();
+    }
+
+    public static function getFollowing($uid, $fid) {
+        $pdo = establishCONN();
+
+        $stmt = $pdo->prepare("SELECT * FROM follows_table WHERE User = :uid AND Follower = :fid");
+        $stmt->bindValue(':uid', $uid);
+        $stmt->bindValue(':fid', $fid);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 

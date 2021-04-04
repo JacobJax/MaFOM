@@ -109,7 +109,8 @@ class Event{
 
         $pdo = establishCONN();
         
-        $stmt = $pdo->prepare("SELECT * FROM tickets WHERE event_id = :eid");
+        $stmt = $pdo->prepare("SELECT * FROM tickets WHERE status = :sts AND event_id = :eid");
+        $stmt->bindValue(':sts', false);
         $stmt->bindValue(':eid', $id);
         $stmt->execute();
 
@@ -129,6 +130,24 @@ class Event{
         $pdo = establishCONN();
         
         $stmt = $pdo->prepare("SELECT * FROM types");
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function changeNumber($eid) {
+        $pdo = establishCONN();
+
+        $stmt = $pdo->prepare("UPDATE events SET capacity = capacity - 1 WHERE event_id = :eid");
+        $stmt->bindValue(':eid', $eid);
+        $stmt->execute();
+    }
+
+    public static function getEventFromView($uid) {
+        $pdo = establishCONN();
+
+        $stmt = $pdo->prepare("SELECT * FROM attendance WHERE atendee_id = :uid");
+        $stmt->bindValue(':uid', $uid);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

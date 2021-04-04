@@ -11,12 +11,12 @@ $events = Event::getEventsWithTickets();
         <div class="container-fluid d-flex contents">
             <?php include_once 'includes/sidenav.php' ?>
             <main>
-                <div class="events my-2">
+                <div class="event_s my-2">
                     <div class="evn-container">
                         <div class="events">
                             <?php foreach($events as $event) {?>
                                 <div class="event my-3">
-                                    <a href="event.php?eid=<?php echo $event["event_id"] ?>" class="link-evn">
+                                    <a href="event.php?uid=<?php echo $_SESSION["uid"] ?>&eid=<?php echo $event["event_id"] ?>" class="link-evn">
                                         <div class="event-container d-flex">
                                             <div class="evn-img">
                                                 <img src="<?php echo $event["event_poster"] ?>" alt="">
@@ -52,44 +52,6 @@ $events = Event::getEventsWithTickets();
                 </div>
             </main>
 
-            <aside class="right-menu">
-                <div class="popular my-3">
-                    <h3 class="popular-header title">Popular events</h3>
-                    <div class="evn-popular bg-c my-2">
-                        <h6 class="pop-name">Something good</h6>
-                        <p style="font-size: .8rem;"><b>13 people attending</b></p>
-                    </div>                                       
-                    <div class="evn-popular bg-c my-2">
-                        <h6 class="pop-name">Something good</h6>
-                        <p style="font-size: .8rem;"><b>13 people attending</b></p>
-                    </div>                                       
-                    <div class="evn-popular bg-c my-2">
-                        <h6 class="pop-name">Something good</h6>
-                        <p style="font-size: .8rem;"><b>13 people attending</b></p>
-                    </div>                                       
-                </div>
-                <div class="popular my-3">
-                    <h3 class="popular-header title">Popular hosts</h3>
-                    <div class="host d-flex bg-c my-2">
-                        <div class="host-ill">
-                            <img src="https://img.icons8.com/emoji/48/000000/man-dark-skin-tone.png"/>
-                        </div>
-                        <div class="host-text">
-                            <h3 class="host-name">NRG RADIO</h3>
-                            <a href="" class="pill"><small>Follow</small></a>
-                        </div>
-                    </div>
-                    <div class="host d-flex bg-c my-2">
-                        <div class="host-ill">
-                            <img src="https://img.icons8.com/emoji/48/000000/man-dark-skin-tone.png"/>
-                        </div>
-                        <div class="host-text">
-                            <h3 class="host-name">NRG RADIO</h3>
-                            <a href="" class="pill"><small>Follow</small></a>
-                        </div>
-                    </div>
-                </div>
-            </aside>
         </div>
     </section>
 </body>

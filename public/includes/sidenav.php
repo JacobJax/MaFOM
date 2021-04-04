@@ -11,16 +11,6 @@
                                 <img src="https://img.icons8.com/emoji/30/000000/calendar-emoji.png" class="mx-2">Events
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="tickets.php?uid=<?php echo $_SESSION['uid'] ?>">
-                                <img src="https://img.icons8.com/emoji/30/000000/-emoji-admission.png"/ class="mx-2">Tickets
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="savedEvents.php?uid=<?php echo $_SESSION['uid'] ?>">
-                                <img src="https://img.icons8.com/emoji/30/000000/bookmark-emoji.png" class="mx-2">Saved
-                            </a>
-                        </li>
                     </ul>
                     <a href="add.php?uid=<?php echo $_SESSION['uid'] ?>" class="btn btn-event">Create event</a>
                 </div>

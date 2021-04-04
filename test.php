@@ -2,6 +2,18 @@
 if(isset($_GET["cars"])){
     echo $_GET["cars"];
 }
+
+    $pdo = new PDO('mysql:host=localhost;port=3306;dbname=mafom_mgt', 'root', '');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $stmt = $pdo->prepare("SELECT * FROM events RIGHT JOIN tickets ON events.event_id = 7 AND tickets.event_id = 7");
+    $stmt->execute();
+    $event = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // echo "<pre>";
+    //     var_dump($event);
+    // echo "</pre>";
+    // exit();
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +25,7 @@ if(isset($_GET["cars"])){
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="GET">
+    <form action="j.php" method="GET">
         <label for="cars">Choose a car:</label>
         <select name="cars" id="cars">
             <option value="1">Volvo</option>

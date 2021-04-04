@@ -1,8 +1,11 @@
 <?php 
 require_once './models/Event.php';
+require_once './models/User.php';
 
 $uid = (int)$_GET['uid'];
 $events = Event::getUserEvents($uid);
+$v_events = Event::getEventFromView($uid);
+
 
 // echo "<pre>";
 // var_dump($events);
@@ -18,8 +21,8 @@ $events = Event::getUserEvents($uid);
         <?php include_once 'includes/sidenav.php' ?>
 
             <main class="mx-5">
-                <div class="events my-2">
-                    <div class="evns-container" style="width: 968px;">
+                <div class="event_s my-2">
+                    <div class="evns-container" style="width: 968px; overflow: scroll; padding: 10px; height: 90vh;">
                         <div class="evn-created">
                             <h3>Created events</h3>
                             <table class="table table-borderless">
@@ -69,20 +72,21 @@ $events = Event::getUserEvents($uid);
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td>@fat</td>
-                                  </tr>
+                                    <?php foreach($v_events as $i => $event) { ?>
+                                        <tr>
+                                            <th scope="row"><?php echo $i + 1 ?></th>
+                                            <td><?php echo $event["name"] ?></td>
+                                            <td>
+                                                <?php 
+                                                    $host = User::getSingleUser($event["host_id"]);
+                                                    echo $host["username"];
+                                                 ?>
+                                            </td>
+                                            <td><?php echo $event["evn_location"] ?></td>
+                                            <td><?php echo $event["start_date"] ?></td>
+                                            <td><?php echo $event["price"] ?></td>
+                                        </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>

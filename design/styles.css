@@ -209,3 +209,28 @@ table{
     justify-content: center;
     align-items: center;
 }
+
+.an-evn-s{
+    display: grid;
+    place-items: center;
+}
+.an-evn img{
+    width: 100%;
+    /* height: 100%; */
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--br-secondary);
+}
+.an-evn{
+    background: var(--lightcolor);
+    max-width: 778px;
+    padding: 10px;
+}
+.an-evn .host{
+    box-shadow: none;
+}
+.an-evn-cpt{
+    border-right: var(--lg) 2px solid;
+    border-left: var(--lg) 2px solid;
+    padding: 0 5px;
+}

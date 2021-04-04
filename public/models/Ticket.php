@@ -1,4 +1,6 @@
 <?php require_once "../db/db_config.php" ?>
+<?php require_once "./Event.php" ?>
+
 <?php
 
 class Ticket{
@@ -66,6 +68,30 @@ class Ticket{
                                 ");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function changeStatus($eid, $tid, $bid) {
+
+        Event::changeNumber($eid);
+        
+        $pdo = establishCONN();
+
+        $stmt = $pdo->prepare("UPDATE tickets SET buyer_id = :bid, status = :sts WHERE ticket_id = :tid");
+        $stmt->bindValue(':bid', $bid);
+        $stmt->bindValue(':sts', true);
+        $stmt->bindValue(':tid', $tid);
+
+        $stmt->execute();
+    }
+
+    public static function attendEvent($eid, $uid) {
+        $pdo = establishCONN();
+
+        $stmt = $pdo->prepare("INSERT INTO attending (event_id, user_id) VALUES (:eid, :uid)");
+        $stmt->bindValue(':eid', $eid);
+        $stmt->bindValue(':uid', $uid);
+
+        $stmt->execute();
     }
 }
 
