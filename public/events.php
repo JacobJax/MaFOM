@@ -33,6 +33,7 @@ $v_events = Event::getEventFromView($uid);
                                         <th scope="col">Location</th>
                                         <th scope="col">Date</th>
                                         <th scope="col">Price</th>
+                                        <th scope="col">Capacity</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -44,14 +45,13 @@ $v_events = Event::getEventFromView($uid);
                                             <td><?php echo $event["evn_location"] ?></td>
                                             <td><?php echo $event["start_date"] ?></td>
                                             <td><?php echo $event["price"] ?></td>
+                                            <td><?php echo $event["capacity"] ?></td>
                                             <td>
                                                 <?php if($event["hasTickets"]) {?>
                                                     <a href="moreTickets.php?uid=<?php echo $uid ?>&eid=<?php echo $event["event_id"] ?>" class="btn btn-primary btn-sm">Add more tickets</a>
                                                 <?php } else {?>
                                                     <a href="addTickets.php?uid=<?php echo $uid ?>&eid=<?php echo $event["event_id"] ?>" class="btn btn-primary btn-sm">Create tickets</a>
                                                 <?php }?>
-                                                <a href="#" class="btn btn-secondary btn-sm">Edit</a>
-                                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
                                             </td>
                                         </tr>
                                     <?php } ?>

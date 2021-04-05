@@ -24,14 +24,17 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 
     Ticket::attendEvent($eid, $uid);
 
-    while($counter < $numT) { 
+    if($numT <= $event["capacity"]) {
+        
+        while($counter < $numT) { 
 
-        $evn = array_pop($tickets);
-        Ticket::changeStatus($event["event_id"], $evn["ticket_id"], $uid);
-        $counter++;
-
+            $evn = array_pop($tickets);
+            Ticket::changeStatus($event["event_id"], $evn["ticket_id"], $uid);
+            $counter++;
+    
+        }
+        header('Location: events.php?uid=' . $uid);
     }
-    header('Location: events.php?uid=' . $uid);
 }
 
 ?>
@@ -42,42 +45,60 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
             <div class="an-evn my-3">
                 <img src="<?php echo $event["event_poster"] ?>" alt="">
                 <div class="an-evn-dets">
-                    <div class="an-evn-ttl my-2 d-flex">
+                    <div class="an-evn-ttl my-2 d-flex" style="white-space: nowrap;">
                         <h3 class="title"><?php echo $event["name"] ?></h3>
-                        <p class="pill mx-3"><?php echo $event["evn_location"] ?></p>
+                        <small><p class="mx-1"> - <?php echo $event["evn_location"] ?> -</p></small>
+                        <small><p class="mx-1"><?php echo $event["type_name"] ?> | </p></small>
+                        <small><p> <?php echo $event["category_name"] ?></p></small>
                     </div>
                     <hr>
-                    <div class="an-evn-hst d-flex my-2">
+                    <div class="an-evn-hst d-flex">
                         <div class="host d-flex bg-c my-2 mx-2">
                             <div class="host-text">
                                 <h3 class="host-name" style="white-space:nowrap;">
                                     <?php echo $host["username"] ?>
                                 </h3>
                                 <form action="follow.php?uid=<?php echo $event["user_id"] ?>&fid=<?php echo $uid ?>&eid=<?php echo $event["event_id"] ?>" method="POST">
-                                    <?php if(empty($flw)) {?>
-                                        <button class="btn btn-primary btn-sm btn-block"><small>Follow</small></button>
-                                    <?php } else {?>
-                                        <button class="btn btn-link btn-sm btn-block">Following</button>
-                                    <?php } ?>
+                                    <?php if($event["user_id"] != $uid) {?>
+                                        <?php if(empty($flw)) {?>
+                                            <button class="btn btn-primary btn-sm btn-block"><small>Follow</small></button>
+                                        <?php } else {?>
+                                            <a href="#" class="btn btn-link btn-sm btn-block">Following</a>
+                                        <?php } ?>
+                                    <?php }?>
                                 </form>
                                 
                             </div>
                         </div>
                         <div class="an-evn-cpt my-2 mx-3">
-                            <p style="font-size: .8rem;"> <b><?php echo $event["capacity"] ?></b> seats remaining</p>
+                            <p style="font-size: .8rem;">
+                                <?php if($event["capacity"] <= 0){ ?>
+                                    <b> SOLD OUT!</b>
+                                <?php } else {?>
+                                    <b>
+                                        <?php echo $event["capacity"] ?>
+                                    </b> seats remaining
+                                <?php } ?>
+                            </p>
                             <div class="an-evn-date my-2">
                                 <p style="font-size: .8rem; white-space: nowrap;" > <b><?php echo $event["start_date"] ?></b> from <b><?php echo $event["start_time"] ?></b> to  <b><?php echo $event["end_date"] ?> <?php echo $event["end_time"] ?></b> </p>
                             </div>
                         </div> 
                         <div class="an-evn-buy my-3 mb-3">
                             <form action="" method="POST" class="form-inline">
-                                <div class="form-group mb-2">
-                                    <label for="pname">Quantity:</label>
-                                </div>
-                                <div class="form-group col-md-4 mb-3">
-                                    <input type="number" class="form-control" name="numT" value="1" style="width: 70px;">
-                                </div>
-                                <button type="submit" class="btn btn-success btn-block">Buy ticket(s)</button>
+                                <?php if($event["user_id"] != $uid) {?>
+                                    <div class="form-group mb-2">
+                                        <label for="pname">Quantity:</label>
+                                    </div>
+                                    <div class="form-group col-md-4 mb-3">
+                                        <input type="number" class="form-control" name="numT" value="1" style="width: 70px;">
+                                    </div>
+                                    <?php if($event["capacity"] <= 0){ ?>
+                                        <a href="#" class="btn btn-light btn-block"> <b>SOLD OUT!</b> </a>
+                                    <?php } else { ?>
+                                        <button type="submit" class="btn btn-success btn-block">Buy ticket(s)</button>
+                                    <?php } ?>
+                                <?php }?>
                             </form>
                         </div>
                     </div>

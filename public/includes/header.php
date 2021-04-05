@@ -32,7 +32,7 @@ if(session_status() === PHP_SESSION_NONE) {
                 </li>
                 <li class="nav-item">
                   <?php if(isset($_SESSION['uid'])) { ?>
-                    <a class="nav-link" href="account.php?id=<?php echo $_SESSION['uid'] ?>">Hi, <?php echo $_SESSION['uname'] ?></a>
+                    <a class="nav-link" href="#">Hi, <?php echo $_SESSION['uname'] ?></a>
                   <?php } else { ?>
                     <a class="nav-link btn btn-outline-primary" href="register.php">Sign up</a>
                   <?php } ?>
