@@ -5,6 +5,9 @@ $categories = Event::getEventCategory();
 $types = Event::getEventType();
 
 $uid = (int)$_GET['uid'];
+if(!isset($_GET['uid'])) {
+    header('Location: index.php');
+}
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
 

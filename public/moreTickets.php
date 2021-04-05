@@ -6,6 +6,10 @@ require_once "./models/Ticket.php";
 $uid = (int)$_GET['uid'];
 $eid = (int)$_GET['eid'];
 
+if(!isset($_GET['uid']) and !isset($_GET['eid'])) {
+    header('Location: index.php');
+}
+
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $capacity = (int)$_POST['cpt'];

@@ -3,14 +3,12 @@ require_once './models/Event.php';
 require_once './models/User.php';
 
 $uid = (int)$_GET['uid'];
+if(!isset($_GET['uid'])) {
+    header('Location: index.php');
+}
+
 $events = Event::getUserEvents($uid);
 $v_events = Event::getEventFromView($uid);
-
-
-// echo "<pre>";
-// var_dump($events);
-// echo "</pre>";
-// exit();
 
 ?>
 

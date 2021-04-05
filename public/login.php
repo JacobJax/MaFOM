@@ -9,10 +9,6 @@ if(isset($_SESSION['uid'])) {
 
 require_once "./models/User.php";
 
-if(isset($_SESSION['uid'])) {
-    session_destroy();
-}
-
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $email = $_POST['email'];

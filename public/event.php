@@ -7,6 +7,10 @@ require_once "./models/User.php";
 $eid = $_GET["eid"];
 $uid = $_GET["uid"]; 
 
+if(!isset($_GET['uid']) and !isset($_GET['eid'])) {
+    header('Location: index.php');
+}
+
 $event = Event::getSingleEvent($eid);
 $tickets = Event::getTickets($eid);
 $host = User::getSingleUser($event["user_id"]);
