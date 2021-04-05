@@ -74,7 +74,7 @@ class Event{
 
         $pdo = establishCONN();
         
-        $stmt = $pdo->prepare("SELECT * FROM events WHERE event_id = :eid");
+        $stmt = $pdo->prepare("SELECT * FROM events, types, categories WHERE event_id = :eid AND events.type_id = types.type_id AND events.category_id = categories.category_id");
         $stmt->bindValue(':eid', $id);
         $stmt->execute();
 
@@ -101,6 +101,16 @@ class Event{
         $stmt->bindValue(':cpcity', $capacity, PDO::PARAM_INT);
         $stmt->bindValue(':price', $price, PDO::PARAM_INT);
         $stmt->bindValue(':hsPster', true, PDO::PARAM_BOOL);
+
+        $stmt->execute();
+    }
+
+    public static function addCapacity($cpt, $eid) {
+        $pdo = establishCONN();
+
+        $stmt = $pdo->prepare("UPDATE events SET capacity = capacity + :cpt WHERE event_id = :eid");
+        $stmt->bindValue(':cpt', $cpt);
+        $stmt->bindValue(':eid', $eid);
 
         $stmt->execute();
     }

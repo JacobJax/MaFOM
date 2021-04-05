@@ -1,5 +1,5 @@
 <?php require_once "../db/db_config.php" ?>
-<?php require_once "./Event.php" ?>
+<?php require_once "Event.php" ?>
 
 <?php
 

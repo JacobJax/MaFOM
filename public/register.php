@@ -27,6 +27,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <section class="add-evn">
         <div class="container pl-center">
             <form action="" method="POST" class="sm-form my-3">
+                <h3 class="text-center">Sign Up</h3>
+                <hr>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="fname">First Name</label>

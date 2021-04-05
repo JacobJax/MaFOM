@@ -25,6 +25,8 @@ if(isset($_GET["cars"])){
     <title>Document</title>
 </head>
 <body>
+    <a href="
+     j.php ">click</a>
     <form action="j.php" method="GET">
         <label for="cars">Choose a car:</label>
         <select name="cars" id="cars">

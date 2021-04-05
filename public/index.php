@@ -16,7 +16,13 @@ $events = Event::getEventsWithTickets();
                         <div class="events">
                             <?php foreach($events as $event) {?>
                                 <div class="event my-3">
-                                    <a href="event.php?uid=<?php echo $_SESSION["uid"] ?>&eid=<?php echo $event["event_id"] ?>" class="link-evn">
+                                    <a href="
+                                    <?php if(isset($_SESSION["uid"])) {?>
+                                        event.php?uid=<?php echo $_SESSION["uid"] ?>&eid=<?php echo $event["event_id"] ?>
+                                    <?php } else {?>
+                                        login.php
+                                    <?php }?>
+                                    " class="link-evn">
                                         <div class="event-container d-flex">
                                             <div class="evn-img">
                                                 <img src="<?php echo $event["event_poster"] ?>" alt="">

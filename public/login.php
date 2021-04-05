@@ -39,6 +39,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <section class="add-evn">
         <div class="container pl-center">
             <form class="sm-form my-5" action="" method="POST">
+                <h3 class="text-center">Log In</h3>
+                <hr>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email address</label>
                   <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
