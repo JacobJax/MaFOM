@@ -1,6 +1,24 @@
+<?php
+
+if($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    $email = $_POST["email"];
+    $pwd = $_POST["pwd"];
+
+    if($email === "admin@mafom.com" and $pwd === "admin123") {
+
+        session_start();
+        $_SESSION["t_uname"] = "Guest";
+        $_SESSION["uid"] = "";
+
+        header('Location: dashboard.php');
+    }
+}
+
+?>
 <?php include_once "includes/s-header.php" ?>
 <body class="text-center">
-    <form class="form-signin" action= method="POST">
+    <form class="form-signin" action="" method="POST">
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
