@@ -42,6 +42,15 @@ class Admin {
         return $evnObject;
    
     }
+    public static function getUsersP(){
+        $pdo = establishCONN();
+
+        $stmt = $pdo->prepare("SELECT user_id, first_name, last_name, username, email, phone, location FROM users");
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+   
+    }
 
     public static function getFollows() {
         $pdo = establishCONN();
@@ -61,11 +70,29 @@ class Admin {
 
         return $stmt->rowCount();
     }
+    
+    public static function getTickets() {
+        $pdo = establishCONN();
+
+        $stmt = $pdo->prepare("SELECT * FROM tickets");
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     public static function getEventRevenue() {
         $pdo = establishCONN();
 
         $stmt = $pdo->prepare("SELECT * FROM v_ticket ORDER BY Total_revenue DESC");
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function getRevenue() {
+        $pdo = establishCONN();
+
+        $stmt = $pdo->prepare("SELECT * FROM revenue ORDER BY Total_Rev DESC");
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -48,6 +48,7 @@ $ets = Admin::getEventRevenue();
     </table><hr>
     <br>
     <h4>All attendance</h4>
+    <a href="attReport.php" class="btn btn-primary btn-sm md-2">Generate report</a>
     <table class="table">
         <thead class="thead-light">
             <tr>
@@ -76,6 +77,7 @@ $ets = Admin::getEventRevenue();
     </table><hr>
     <br>
     <h4>Events revenue</h4>
+    <a href="revReport.php" class="btn btn-primary btn-sm md-2">Generate report</a>
     <table class="table">
         <thead class="thead-light">
             <tr>
@@ -102,6 +104,3 @@ $ets = Admin::getEventRevenue();
     
 </div>
 <?php include_once "./includes/footer.php" ?>
-<!-- NHTJBFFTFSVLXQYB -->
-<!-- SELECT * FROM events LEFT JOIN categories ON events.category_id = categories.category_id LEFT JOIN types ON events.type_id = types.type_id LEFT JOIN tickets ON events.event_id = tickets.event_id -->
-<!-- CCREATE VIEW v_ticket AS SELECT tickets.event_id as event, events.event_id as evn_id, events.name as evn_name, users.username as created_by, SUM(events.price) as Total_revenue FROM tickets RIGHT JOIN events ON tickets.event_id = events.event_id RIGHT JOIN users ON tickets.user_id = users.user_id GROUP BY events.event_id -->

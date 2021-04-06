@@ -23,7 +23,7 @@ $tcount = Admin::getTicketCount();
                     <div class="card-body">
                         <h3 class="card-title"><?php echo $ucount ?> </h3>
                         <p class="card-text">Total users</p>
-                        <a href="#" class="btn btn-primary">Generate report</a>
+                        <a href="userReport.php" class="btn btn-primary">Generate report</a>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@ $tcount = Admin::getTicketCount();
                     <div class="card-body">
                         <h3 class="card-title"><?php echo $ecount ?> </h3>
                         <p class="card-text">Total events</p>
-                        <a href="#" class="btn btn-primary">Generate report</a>
+                        <a href="eventReport.php" class="btn btn-primary">Generate report</a>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@ $tcount = Admin::getTicketCount();
                     <div class="card-body">
                         <h3 class="card-title"><?php echo $tcount ?> </h3>
                         <p class="card-text">Total tickets so far</p>
-                        <a href="#" class="btn btn-primary">Generate report</a>
+                        <a href="ticketReport.php" class="btn btn-primary">Generate report</a>
                     </div>
                 </div>
             </div>

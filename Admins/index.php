@@ -1,4 +1,4 @@
-<?php include_once "./includes/s-header.php" ?>
+<?php include_once "includes/s-header.php" ?>
 <body class="text-center">
     <form class="form-signin" action= method="POST">
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>

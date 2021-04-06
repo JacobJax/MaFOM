@@ -1,14 +1,20 @@
 <?php
 
-require_once __DIR__ . '../vendor/autoload.php';
 require_once 'models/Admin.php';
 
-$users = Admin::getUsers();
+$users = Admin::getUsersP();
 
-$data = "";
+$headers = array("id", "First name", "Last name", "Username", "Email", "Phone", "Location");
 
-$header = "<h1>MAFOM REPORT</h1><hr><br><h3>Users</>";
+$fh = fopen("reports/users.csv", "w");
+fputcsv($fh, $headers);
 
-$data .= $header;
+foreach($users as $user) {
+    fputcsv($fh, $user);
+}
+
+fclose($fh);
+
+header("Location: dashboard.php");
 
 ?>
