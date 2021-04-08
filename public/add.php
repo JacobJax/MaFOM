@@ -59,11 +59,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
                 <p>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</p>
                 <div class="form-group">
                     <label for="pname">Event name</label>
-                    <input type="text" class="form-control" name="ename">
+                    <input type="text" class="form-control" name="ename" required>
                 </div>
                 <div class="form-group">
                     <label for="p-age">Event description</label>
-                    <textarea name="edesc" class="form-control" rows="2"></textarea>
+                    <textarea name="edesc" class="form-control" rows="2" required></textarea>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -85,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
                 <div class="form-group">
                     <label for="ill">Add event poster</label>
-                    <input type="file" name="ill" id="">
+                    <input type="file" name="ill" id="" required>
                 </div>
 
                 <hr>
@@ -94,7 +94,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
                 <p>Help people in the area discover your event and let attendees know where to show up.</p>
                 <div class="form-group">
                     <label for="pname">Event location</label>
-                    <input type="text" class="form-control" name="elocat">
+                    <input type="text" class="form-control" name="elocat" required>
                 </div>
 
                 <hr>
@@ -105,21 +105,21 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="pname">Event starts</label>
-                        <input type="date" class="form-control" name="estartd">
+                        <input type="date" class="form-control" name="estartd" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="pname">Start time</label>
-                        <input type="time" class="form-control" name="estartt">
+                        <input type="time" class="form-control" name="estartt" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="pname">Event ends</label>
-                        <input type="date" class="form-control" name="eendd">
+                        <input type="date" class="form-control" name="eendd" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="pname">End time</label>
-                        <input type="time" class="form-control" name="eendt">
+                        <input type="time" class="form-control" name="eendt" required>
                     </div>
                 </div>  
                 <hr>

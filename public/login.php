@@ -39,11 +39,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <hr>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
+                  <input type="email" class="form-control" name="email" aria-describedby="emailHelp" required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control" name="pwd">
+                  <input type="password" class="form-control" name="pwd" required>
                 </div>
                 <div class="form-group">
                     <small class="form-text text-muted">Dont have an account <a href="register.php">Register here</a></small>

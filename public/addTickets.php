@@ -42,11 +42,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="pname">Event Capacity</label>
-                        <input type="number" class="form-control" name="cpt">
+                        <input type="number" class="form-control" name="cpt" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="pname">Event Price</label>
-                        <input type="number" class="form-control" name="price">
+                        <input type="number" class="form-control" name="price" required>
                     </div>
                 </div>
                 <hr>

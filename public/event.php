@@ -95,7 +95,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <label for="pname">Quantity:</label>
                                     </div>
                                     <div class="form-group col-md-4 mb-3">
-                                        <input type="number" class="form-control" name="numT" value="1" style="width: 70px;">
+                                        <input type="number" class="form-control" name="numT" value="1" style="width: 70px;" required>
                                     </div>
                                     <?php if($event["capacity"] <= 0){ ?>
                                         <a href="#" class="btn btn-light btn-block"> <b>SOLD OUT!</b> </a>
