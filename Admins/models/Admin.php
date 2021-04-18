@@ -114,6 +114,26 @@ class Admin {
         $stmt->execute();
     }
 
+    public static function blockUser($uid) {
+        $pdo = establishCONN();
+
+        $stmt = $pdo->prepare("UPDATE users SET isBlocked = :blc WHERE user_id = :uid");
+        $stmt->bindValue(':blc', true);
+        $stmt->bindValue(':uid', $uid);
+
+        $stmt->execute();
+    }
+
+    public static function unblockUser($uid) {
+        $pdo = establishCONN();
+
+        $stmt = $pdo->prepare("UPDATE users SET isBlocked = :blc WHERE user_id = :uid");
+        $stmt->bindValue(':blc', false);
+        $stmt->bindValue(':uid', $uid);
+
+        $stmt->execute();
+    }
+
 
 }
 

@@ -57,7 +57,7 @@ class User{
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    private static function getWithEmail($email) {
+    public static function getWithEmail($email) {
         $pdo = establishCONN();
 
         $stmt = $pdo->prepare("SELECT * FROM users  WHERE email LIKE :email");
@@ -96,6 +96,16 @@ class User{
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function checkBlock($uid) {
+        $pdo = establishCONN();
+
+        $stmt = $pdo->prepare("SELECT isBlocked FROM users WHERE user_id = :uid");
+        $stmt->bindValue(':uid', $uid);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
 

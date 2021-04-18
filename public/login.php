@@ -14,18 +14,26 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $pwd = $_POST['pwd'];
 
-    $checkLog = User::logIn($email, $pwd);
+    $user = User::getWithEmail($email);
+    
+    if($user) {
+        $checkLog = User::logIn($email, $pwd);
+        if($checkLog['isLogged']) {
 
-    if($checkLog['isLogged']) {
-
-        session_start();
-
-        $_SESSION['uid'] = $checkLog['userObject']['user_id'];
-        $_SESSION['uname'] = $checkLog['userObject']['username'];
-        $_SESSION['email'] = $checkLog['userObject']['email'];
-
-        header('Location: index.php');
+            session_start();
+    
+            $_SESSION['uid'] = $checkLog['userObject']['user_id'];
+            $_SESSION['uname'] = $checkLog['userObject']['username'];
+            $_SESSION['email'] = $checkLog['userObject']['email'];
+    
+            header('Location: index.php');
+        } else {
+            echo "<script>alert('Wrong password. Try again')</script>";
+        }
+    } else {
+        echo "<script>alert('User account does not exist')</script>";
     }
+    
 }
 
 ?>

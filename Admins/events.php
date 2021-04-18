@@ -48,7 +48,7 @@ $ets = Admin::getEventRevenue();
     </table><hr>
     <br>
     <h4>All attendance</h4>
-    <a href="attReport.php" class="btn btn-primary btn-sm md-2">Generate report</a>
+    <a href="attReport.php" class="btn btn-primary btn-sm my-2">Generate report</a>
     <table class="table">
         <thead class="thead-light">
             <tr>
@@ -77,7 +77,7 @@ $ets = Admin::getEventRevenue();
     </table><hr>
     <br>
     <h4>Events revenue</h4>
-    <a href="revReport.php" class="btn btn-primary btn-sm md-2">Generate report</a>
+    <a href="revReport.php" class="btn btn-primary btn-sm my-2">Generate report</a>
     <table class="table">
         <thead class="thead-light">
             <tr>

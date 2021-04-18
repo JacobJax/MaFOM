@@ -35,7 +35,11 @@ $flws = Admin::getFollows();
                     <td><?php echo $user["phone"] ?></td>
                     <td><?php echo $user["location"] ?></td>
                     <td>
-                        <button class="btn btn-danger btn-sm" >Delete</button>
+                        <?php if(!$user["isBlocked"]) {?>
+                            <a href="blockUser.php?uid=<?php echo $user["user_id"] ?>" class="btn btn-danger btn-sm" >Block user</a>
+                        <?php } else {?>
+                            <a href="unblockUser.php?uid=<?php echo $user["user_id"] ?>" class="btn btn-outline-primary btn-sm" >Blocked</a>
+                        <?php } ?>
                     </td>
                 </tr>
             <?php }?>

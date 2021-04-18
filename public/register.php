@@ -2,6 +2,15 @@
 
 require_once "./models/User.php";
 
+    $fname = "";
+    $lname = "";
+    $uname = "";
+    $email = "";
+    $phone = "";
+    $location = "";
+    $pwd = "";
+    $cpwd = "";
+
 $errors = [
     'email' => "",
     'phone' => "",
@@ -57,46 +66,46 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="fname">First Name</label>
-                        <input type="text" class="form-control" name="fname" required>
+                        <input type="text" class="form-control" name="fname" required value="<?php echo $fname ?>">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="lname">Last Name</label>
-                        <input type="text" class="form-control" name="lname" required>
+                        <input type="text" class="form-control" name="lname" required value="<?php echo $lname ?>">
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label for="uname">Userame</label>
-                    <input type="text" class="form-control" name="uname" required>
+                    <input type="text" class="form-control" name="uname" required value="<?php echo $uname ?>">
                 </div>
     
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="email">Email address</label>
-                        <input type="email" class="form-control" name="email" required>
+                        <input type="email" class="form-control" name="email" required value="<?php echo $email ?>">
                         <small><p><?php echo $errors['email'] ?></p></small>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="phone">Phone</label>
-                        <input type="tel" class="form-control" name="phone" required>
+                        <input type="tel" class="form-control" name="phone" required value="<?php echo $phone ?>" >
                         <small><p><?php echo $errors['phone'] ?></p></small>
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label for="lcation">Location</label>
-                    <input type="text" class="form-control" name="location" required>
+                    <input type="text" class="form-control" name="location" required value="<?php echo $location ?>">
                 </div>
     
                 <div class="form-group form-row">
                     <div class="form-group col-md-6">
                         <label for="pwd">Password</label>
-                        <input type="password" class="form-control" name="pwd" required>
+                        <input type="password" class="form-control" name="pwd" required value="<?php echo $pwd ?>" >
                         <small><p><?php echo $errors['pwd'] ?></p></small>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="pwd">Confirm Password</label>
-                        <input type="password" class="form-control" name="cpwd" required>
+                        <input type="password" class="form-control" name="cpwd" required value="<?php echo $cpwd ?>" >
                         <small><p><?php echo $errors['pwd1'] ?></p></small>
                     </div>
                 </div>
