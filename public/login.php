@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors["error"] = "Wrong password. Try again";
         }
     } else {
-        $errors["error"] = "User account does not exist. Register to log in";
+        $errors["error"] = "User account does not exist. <span><a href='register.php'>Register</a></span> to log in";
     }
     
 }
