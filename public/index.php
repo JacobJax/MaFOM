@@ -1,12 +1,27 @@
 <?php 
 require_once './models/Event.php';
+require_once 'models/User.php';
 
 $events = Event::getEventsWithTickets();
 
 ?>
 
 <?php include_once "includes/header.php" ?>
+<?php
+    if(isset($_SESSION['uid'])) {
+        $id = $_SESSION['uid'];
+        $isBlocked = User::checkBlock($id);
+    }
+?>
 
+<?php if(isset($_SESSION['uid']) && (bool)$isBlocked['isBlocked']) {?>
+    <div class="container">
+        <div class="jumbotron my-3">
+            <h3>ACTION BLOCKED!</h3>
+            <p>Unable to complete action because you have been blocked. <span><a href="guidline.html">Why is this happening</a></span></p>
+        </div>
+    </div>
+<?php } else {?>
     <section class="main-cont">
         <div class="container-fluid d-flex contents">
             <?php include_once 'includes/sidenav.php' ?>
@@ -60,5 +75,6 @@ $events = Event::getEventsWithTickets();
 
         </div>
     </section>
+    <?php } ?>
 </body>
 </html>
