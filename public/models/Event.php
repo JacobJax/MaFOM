@@ -64,7 +64,7 @@ class Event{
     public static function getEventsWithTickets() {
 
         $pdo = establishCONN();
-        $stmt = $pdo->prepare("SELECT * FROM events, users WHERE hasTickets = true AND  events.user_id = users.user_id");
+        $stmt = $pdo->prepare("SELECT * FROM events, users WHERE hasTickets = true AND  events.user_id = users.user_id ORDER BY event_id DESC");
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

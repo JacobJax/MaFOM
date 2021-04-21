@@ -50,10 +50,10 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
                 <img src="<?php echo $event["event_poster"] ?>" alt="">
                 <div class="an-evn-dets">
                     <div class="an-evn-ttl my-2 d-flex" style="white-space: nowrap;">
-                        <h3 class="title"><?php echo $event["name"] ?></h3>
-                        <small><p class="mx-1"> - <?php echo $event["evn_location"] ?> -</p></small>
-                        <small><p class="mx-1"><?php echo $event["type_name"] ?> | </p></small>
-                        <small><p> <?php echo $event["category_name"] ?></p></small>
+                        <p style="margin-right: 10px"><b><?php echo $event["name"] ?></b></p>
+                        <p class="mx-1"> - <?php echo $event["evn_location"] ?> -</p>
+                        <p class="mx-1"><?php echo $event["type_name"] ?> | </p>
+                        <p> <?php echo $event["category_name"] ?></p>
                     </div>
                     <hr>
                     <div class="an-evn-hst d-flex">
@@ -100,7 +100,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
                                     <?php if($event["capacity"] <= 0){ ?>
                                         <a href="#" class="btn btn-light btn-block"> <b>SOLD OUT!</b> </a>
                                     <?php } else { ?>
-                                        <button type="submit" class="btn btn-success btn-block">Buy ticket(s)</button>
+                                        <button type="submit" class="btn btn-success btn-block">
+                                        <?php if($event["price"] == 0) {?>
+                                            <?php echo "Get seat(s) - FREE event" ?>
+                                        <?php } else { ?>
+                                            <?php echo "Buy ticket(s)" ?>
+                                        <?php } ?>
+                                        </button>
                                     <?php } ?>
                                 <?php }?>
                             </form>

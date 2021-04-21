@@ -47,9 +47,6 @@ if(!isset($_SESSION["t_uname"])) {
                 <ul class="nav justify-content-end">
                     <?php if(isset($_SESSION['t_uname'])) { ?>
                         <li class="nav-item">
-                            <a class="nav-link mx-2" href="register.php.php">Create user</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link  mx-2" href="logout.php">Log out</a>
                         </li>
                     <?php } ?>                

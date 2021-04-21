@@ -6,6 +6,14 @@ $events = $e_vents['events'];
 
 $ats = Admin::getAttendance();
 $ets = Admin::getEventRevenue();
+$pvents = Admin::getPastEvents();
+
+if($_SERVER["REQUEST_METHOD"] === "POST") {
+    $eid = $_POST["eid"];
+
+    Admin::deleteEvent($eid);
+    header('Location: events.php');
+}
 
 ?>
 
@@ -24,7 +32,6 @@ $ets = Admin::getEventRevenue();
                 <th scope="col">Location</th>
                 <th scope="col">Start on</th>
                 <th scope="col">Ends on</th>
-                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -39,9 +46,7 @@ $ets = Admin::getEventRevenue();
                     <td><?php echo $event["evn_location"] ?></td>
                     <td><?php echo $event["start_date"] ?></td>
                     <td><?php echo $event["end_date"] ?></td>
-                    <td>
-                        <button class="btn btn-danger btn-sm" >Delete</button>
-                    </td>
+                    
                 </tr>
             <?php }?>
         </tbody>
@@ -101,6 +106,32 @@ $ets = Admin::getEventRevenue();
         </tbody>
     </table><hr>
     <br>
+    <h4>Past events</h4>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Event name</th>
+                <th scope="col">Location</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($pvents as $i => $event) {?>
+                <tr>
+                    <th scope="row"><?php echo $i + 1 ?></th>
+                    <td><?php echo $event["name"] ?></td>
+                    <td><?php echo $event["evn_location"] ?></td>
+                    <td>
+                        <form action="" method="POST" class="form-inline">
+                            <input type="text" name="eid" hidden value="<?php echo $event["event_id"] ?>">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>                    
+                </tr>
+            <?php }?>
+        </tbody>
+    </table><hr>
     
 </div>
 <?php include_once "./includes/footer.php" ?>

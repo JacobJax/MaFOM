@@ -134,6 +134,15 @@ class Admin {
         $stmt->execute();
     }
 
+    public static function getPastEvents() {
+        $pdo = establishCONN();
+
+        $stmt = $pdo->prepare("SELECT * FROM past_events");
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 
 }
 

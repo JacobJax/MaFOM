@@ -47,6 +47,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="form-group col-md-6">
                         <label for="pname">Event Price</label>
                         <input type="number" class="form-control" name="price" required>
+                        <small><p><b>To create a free event, enter price as 0</b></p></small>
                     </div>
                 </div>
                 <hr>

@@ -18,7 +18,12 @@ $events = Event::getEventsWithTickets();
     <div class="container">
         <div class="jumbotron my-3">
             <h3>ACTION BLOCKED!</h3>
-            <p>Unable to complete action because you have been blocked. <span><a href="guidline.html">Why is this happening</a></span></p>
+            <p>Unable to complete action because you have been blocked. </p>
+            <p>This happens if</p>
+            <ol>
+                <li>We noted suspicious activity</li>
+                <li>Attempt at an unallowed activity</li>
+            </ol>
         </div>
     </div>
 <?php } else {?>
@@ -57,11 +62,16 @@ $events = Event::getEventsWithTickets();
                                                 </div>
                                                 <div class="evn-text-right d-flex flex-column" style="gap: 120px;">
                                                     <div class="evn-links d-flex justify-content-around">
-                                                        <div class="evn-price">
-                                                            <p><b>Kshs <?php echo $event["price"] ?></b></p>
-                                                        </div>
+                                                        <?php if($event["price"] == 0){?>
+                                                            <div class="evn-price">
+                                                                <p><b>FREE</b></p>
+                                                            </div>
+                                                        <?php } else {?>
+                                                            <div class="evn-price">
+                                                                <p><b>Kshs <?php echo $event["price"] ?></b></p>
+                                                            </div>
+                                                        <?php }?>
                                                     </div>
-                                                    
                                                 </div>
                                             </div>
                                         </div>
