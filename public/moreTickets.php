@@ -40,7 +40,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <small><p>Increase the number of attendance for your party</p></small>
                 <div class="form-group">
                     <label for="pname">Ticket quantity:</label>
-                    <input type="number" class="form-control" name="cpt">
+                    <input type="number" class="form-control" name="cpt" required>
                 </div>
                 <hr>
                 <button type="submit" class="btn btn-primary btn-block">Create tickets</button>

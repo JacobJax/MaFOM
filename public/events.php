@@ -42,7 +42,13 @@ $v_events = Event::getEventFromView($uid);
                                             <td><?php echo $event["name"] ?></td>
                                             <td><?php echo $event["evn_location"] ?></td>
                                             <td><?php echo $event["start_date"] ?></td>
-                                            <td><?php echo $event["price"] ?></td>
+                                            <td>
+                                                <?php if($event["price"] == 0) {?>
+                                                    <?php echo "FREE" ?>
+                                                <?php } else { ?>
+                                                    <?php echo $event["price"] ?>
+                                                <?php } ?>
+                                            </td>
                                             <td><?php echo $event["capacity"] ?></td>
                                             <td>
                                                 <?php if($event["hasTickets"]) {?>
@@ -82,7 +88,13 @@ $v_events = Event::getEventFromView($uid);
                                             </td>
                                             <td><?php echo $event["evn_location"] ?></td>
                                             <td><?php echo $event["start_date"] ?></td>
-                                            <td><?php echo $event["price"] ?></td>
+                                            <td>
+                                                <?php if($event["price"] == 0) {?>
+                                                    <?php echo "FREE" ?>
+                                                <?php } else { ?>
+                                                    <?php echo $event["price"] ?>
+                                                <?php } ?>
+                                            </td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
