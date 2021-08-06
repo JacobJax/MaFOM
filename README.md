@@ -1,8 +1,9 @@
 # ![logo](ill/logo.PNG) 
 
+MaFOM is a simple online Ticketing System for events.
+
 ![homepage](ill/home.PNG)
 
-MaFOM is a simple online Ticketing System for events.
 
 It works by allowing users to register, login, view events, and buy tickets to the event.
 
