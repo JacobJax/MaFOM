@@ -1,6 +1,6 @@
-# ![logo](ill\logo.PNG) 
+# ![logo](ill/logo.PNG) 
 
-![homepage](ill\home.PNG)
+![homepage](ill/home.PNG)
 
 MaFOM is a simple online Ticketing System for events.
 
@@ -71,7 +71,7 @@ On the homepage click `Create Event`
 
 Enter the event details and then click `Create Event` button.
 
-![new event](ill\new.PNG)
+![new event](ill/new.PNG)
 
 
 <br>
@@ -83,14 +83,14 @@ To activate your event you need to add tickets to it.
 
 On the Events page; Which you'll be redirected to, Click `Create Tickets`
 
-![create tickets](ill\view1.PNG)
+![create tickets](ill/view1.PNG)
 
 Enter the event capacity(The number of attendies you're expecting) and the price of the ticket.
 
 > If you are hosting a free event, input the price as 0
 
 
-![add tickets](ILL\addticket.PNG)
+![add tickets](ILL/addticket.PNG)
 
 Click on `Create Tickets`. This creates tickets for your event and activates your event.
 
@@ -106,7 +106,7 @@ Once you found one thats interesting, click on it.
 
 On the Event details page, enter the *Quantity*(The number of tickets you want to buy).
 
-![event details](ill\evndetails.PNG)
+![event details](ill/evndetails.PNG)
 
 Click on `Buy tickets`. This will redirect you to the Events page.
 
@@ -119,11 +119,11 @@ Incase your tickets get depleted because you're hosting an awesome event or you 
 
 On the Events page, click `Add more tickets`
 
-![adding tickets](ill\view2.PNG)
+![adding tickets](ill/view2.PNG)
 
 Enter the number of tickets you want to add then click `Create tickets`
 
-![add more tickets](ill\inctickets.PNG)
+![add more tickets](ill/inctickets.PNG)
 
 
 <br>
