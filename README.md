@@ -91,7 +91,7 @@ Enter the event capacity(The number of attendies you're expecting) and the price
 > If you are hosting a free event, input the price as 0
 
 
-![add tickets](ILL/addticket.PNG)
+![add tickets](ill/addticket.PNG)
 
 Click on `Create Tickets`. This creates tickets for your event and activates your event.
 
