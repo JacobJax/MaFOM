@@ -55,6 +55,8 @@ The project was built in collab with my friend [Allan Abere](https://github.com/
 ## Register and Log in
 The index page allows you to view a list of pets but will not let you adopt any without an account.
 
+You can click on `Sugn up` to go directly to the Register page. Optionaly you could click on any event. This redirects you to the Log in page.
+
 On the log in page, click on `Register here` and enter your details then click `Register` to create an account
 
 ![register page](ill/register.PNG)
