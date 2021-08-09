@@ -9,6 +9,8 @@ It works by allowing users to register, login, view events, and buy tickets to t
 
 A user can also create their own event for as little as nothing; 💯 free (A user can alternate roles between being an event attendee and a host)
 
+The project was built in collab with my friend [Allan Abere](https://github.com/Allan70).
+
 ## Languages and Technologies 🛠
 
 * HTML
