@@ -11,6 +11,8 @@ A user can also create their own event for as little as nothing; 💯 free (A us
 
 The project was built in collab with my friend [Allan Abere](https://github.com/Allan70).
 
+<br>
+
 ## Languages and Technologies 🛠
 
 * HTML
