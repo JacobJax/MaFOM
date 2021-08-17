@@ -1,6 +1,6 @@
 # ![logo](ill/logo.PNG) 
 
-MaFOM is a simple online Ticketing System for events.
+MaFOM is a simple online Ticketing System for events. Vie live demo [here](https://mafom.herokuapp.com/)
 
 ![homepage](ill/home.PNG)
 
