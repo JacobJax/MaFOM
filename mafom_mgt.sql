@@ -1561,7 +1561,7 @@ CREATE TABLE `v_ticket` (
 --
 DROP TABLE IF EXISTS `attendance`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `attendance`  AS  select `attending`.`event_id` AS `party_id`,`events`.`event_id` AS `event_id`,`events`.`name` AS `name`,`events`.`evn_location` AS `evn_location`,`events`.`description` AS `description`,`events`.`start_date` AS `start_date`,`events`.`start_time` AS `start_time`,`events`.`end_date` AS `end_date`,`events`.`end_time` AS `end_time`,`events`.`price` AS `price`,`events`.`user_id` AS `host_id`,`attending`.`user_id` AS `atendee_id`,`users`.`first_name` AS `first_name`,`users`.`last_name` AS `last_name`,`users`.`username` AS `username`,`users`.`email` AS `email`,`users`.`phone` AS `phone`,`users`.`location` AS `location` from ((`attending` left join `events` on(`attending`.`event_id` = `events`.`event_id`)) left join `users` on(`attending`.`user_id` = `users`.`user_id`)) ;
+CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `attendance`  AS  select `attending`.`event_id` AS `party_id`,`events`.`event_id` AS `event_id`,`events`.`name` AS `name`,`events`.`evn_location` AS `evn_location`,`events`.`description` AS `description`,`events`.`start_date` AS `start_date`,`events`.`start_time` AS `start_time`,`events`.`end_date` AS `end_date`,`events`.`end_time` AS `end_time`,`events`.`price` AS `price`,`events`.`user_id` AS `host_id`,`attending`.`user_id` AS `atendee_id`,`users`.`first_name` AS `first_name`,`users`.`last_name` AS `last_name`,`users`.`username` AS `username`,`users`.`email` AS `email`,`users`.`phone` AS `phone`,`users`.`location` AS `location` from ((`attending` left join `events` on(`attending`.`event_id` = `events`.`event_id`)) left join `users` on(`attending`.`user_id` = `users`.`user_id`)) ;
 
 -- --------------------------------------------------------
 
@@ -1570,7 +1570,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `follows_table`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `follows_table`  AS  select `folowers`.`user_id` AS `User`,`u`.`first_name` AS `ufname`,`u`.`last_name` AS `ulname`,`u`.`username` AS `uuname`,`u`.`email` AS `uemail`,`u`.`phone` AS `uphone`,`u`.`location` AS `ulocation`,`folowers`.`folower_id` AS `Follower`,`f`.`first_name` AS `ffname`,`f`.`last_name` AS `flname`,`f`.`username` AS `funame`,`f`.`email` AS `femail`,`f`.`phone` AS `fphone`,`f`.`location` AS `flocation` from ((`folowers` left join `users` `u` on(`folowers`.`user_id` = `u`.`user_id`)) left join `users` `f` on(`folowers`.`folower_id` = `f`.`user_id`)) ;
+CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `follows_table`  AS  select `folowers`.`user_id` AS `User`,`u`.`first_name` AS `ufname`,`u`.`last_name` AS `ulname`,`u`.`username` AS `uuname`,`u`.`email` AS `uemail`,`u`.`phone` AS `uphone`,`u`.`location` AS `ulocation`,`folowers`.`folower_id` AS `Follower`,`f`.`first_name` AS `ffname`,`f`.`last_name` AS `flname`,`f`.`username` AS `funame`,`f`.`email` AS `femail`,`f`.`phone` AS `fphone`,`f`.`location` AS `flocation` from ((`folowers` left join `users` `u` on(`folowers`.`user_id` = `u`.`user_id`)) left join `users` `f` on(`folowers`.`folower_id` = `f`.`user_id`)) ;
 
 -- --------------------------------------------------------
 
@@ -1579,7 +1579,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `past_events`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `past_events`  AS  select `events`.`event_id` AS `event_id`,`events`.`name` AS `name`,`events`.`evn_location` AS `evn_location`,`events`.`description` AS `description`,`events`.`type_id` AS `type_id`,`events`.`category_id` AS `category_id`,`events`.`start_date` AS `start_date`,`events`.`start_time` AS `start_time`,`events`.`end_date` AS `end_date`,`events`.`end_time` AS `end_time`,`events`.`capacity` AS `capacity`,`events`.`price` AS `price`,`events`.`user_id` AS `user_id`,`events`.`event_poster` AS `event_poster`,`events`.`hasTickets` AS `hasTickets` from `events` where timestampdiff(DAY,`events`.`end_date`,current_timestamp()) >= 0 ;
+CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `past_events`  AS  select `events`.`event_id` AS `event_id`,`events`.`name` AS `name`,`events`.`evn_location` AS `evn_location`,`events`.`description` AS `description`,`events`.`type_id` AS `type_id`,`events`.`category_id` AS `category_id`,`events`.`start_date` AS `start_date`,`events`.`start_time` AS `start_time`,`events`.`end_date` AS `end_date`,`events`.`end_time` AS `end_time`,`events`.`capacity` AS `capacity`,`events`.`price` AS `price`,`events`.`user_id` AS `user_id`,`events`.`event_poster` AS `event_poster`,`events`.`hasTickets` AS `hasTickets` from `events` where timestampdiff(DAY,`events`.`end_date`,current_timestamp()) >= 0 ;
 
 -- --------------------------------------------------------
 
@@ -1588,7 +1588,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `revenue`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `revenue`  AS  select `tickets`.`event_id` AS `evn_id`,`events`.`name` AS `Event`,`users`.`username` AS `Host`,sum(`events`.`price`) AS `Total_Rev` from ((`tickets` join `events`) join `users`) where `tickets`.`status` = 1 and `tickets`.`event_id` = `events`.`event_id` and `tickets`.`user_id` = `users`.`user_id` group by `events`.`event_id` ;
+CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `revenue`  AS  select `tickets`.`event_id` AS `evn_id`,`events`.`name` AS `Event`,`users`.`username` AS `Host`,sum(`events`.`price`) AS `Total_Rev` from ((`tickets` join `events`) join `users`) where `tickets`.`status` = 1 and `tickets`.`event_id` = `events`.`event_id` and `tickets`.`user_id` = `users`.`user_id` group by `events`.`event_id` ;
 
 -- --------------------------------------------------------
 
@@ -1597,7 +1597,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `v_ticket`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_ticket`  AS  select `tickets`.`event_id` AS `event`,`events`.`event_id` AS `evn_id`,`events`.`name` AS `evn_name`,`users`.`username` AS `created_by`,sum(`events`.`price`) AS `Total_revenue` from (`users` left join (`events` left join `tickets` on(`tickets`.`event_id` = `events`.`event_id`)) on(`tickets`.`user_id` = `users`.`user_id`)) group by `events`.`event_id` ;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `v_ticket`  AS  select `tickets`.`event_id` AS `event`,`events`.`event_id` AS `evn_id`,`events`.`name` AS `evn_name`,`users`.`username` AS `created_by`,sum(`events`.`price`) AS `Total_revenue` from (`users` left join (`events` left join `tickets` on(`tickets`.`event_id` = `events`.`event_id`)) on(`tickets`.`user_id` = `users`.`user_id`)) group by `events`.`event_id` ;
 
 --
 -- Indexes for dumped tables
