@@ -1,5 +1,7 @@
 # ![logo](ill/logo.PNG) 
 
+[![GitHub issues](https://img.shields.io/github/issues/JacobJax/MaFOM)](https://github.com/JacobJax/MaFOM/issues) [![GitHub stars](https://img.shields.io/github/stars/JacobJax/MaFOM)](https://github.com/JacobJax/MaFOM/stargazers) [![GitHub license](https://img.shields.io/github/license/JacobJax/MaFOM?color=red)](https://github.com/JacobJax/MaFOM/blob/master/LICENSE)
+
 MaFOM is a simple online Ticketing System for events. View live demo [here](https://mafom.herokuapp.com/)
 
 ![homepage](ill/home.PNG)
