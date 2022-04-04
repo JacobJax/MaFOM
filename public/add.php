@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     $actualFileExt = strtolower(end($fileExt));
 
     $fileNewName = uniqid('', true) . '.' . $actualFileExt;
-    $destination = "https://mafom.herokuapp.com/img/" . $fileNewName;
+    $destination = "./img/" . $fileNewName;
     $poster = $destination;
     move_uploaded_file($fileTmpDes, $destination); 
 
